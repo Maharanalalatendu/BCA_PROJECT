@@ -615,7 +615,7 @@ app.get("/api/admin/all", async function (req, res) {
 
 })
 
-app.post("/api/admin/all_booking", async function (req, res) {
+app.get("/api/admin/all_booking", async function (req, res) {
   const supabase = await supabasePromise;
   const { data, error } = await supabase
     .from('booking')
