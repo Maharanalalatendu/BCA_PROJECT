@@ -354,19 +354,6 @@ app.post("/api/all_booking/user_id", async function (req, res) {
 
 })
 
-app.post("/api/all_booking", async function (req, res) {
-  const supabase = await supabasePromise;
-  const { data, error } = await supabase
-    .from('booking')
-    .select('*')
-  if (data) {
-    res.json({ message: 'found usre data', data: data })
-  } else {
-    res.json({ message: ' not found' })
-  }
-
-})
-
 app.post("/api/party/resgister", async function (req, res) {
   let email = req.body.email
   let mobile_no = req.body.mobile_no
@@ -624,6 +611,19 @@ app.get("/api/admin/all", async function (req, res) {
     console.log("error" + error)
     res.json({ message: "data not found or error" })
     //console.log(error)
+  }
+
+})
+
+app.post("/api/admin/all_booking", async function (req, res) {
+  const supabase = await supabasePromise;
+  const { data, error } = await supabase
+    .from('booking')
+    .select('*')
+  if (data) {
+    res.json({ message: 'found usre data', data: data })
+  } else {
+    res.json({ message: ' not found' })
   }
 
 })
